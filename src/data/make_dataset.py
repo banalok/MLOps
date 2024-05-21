@@ -92,5 +92,5 @@ def main():
     save_data(data= val_df, output_path= interim_data_path / 'val.csv')
     
     
-if __name__ == '__main__':
+if __name__ == '__main__':    
     main()

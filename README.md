@@ -1,7 +1,7 @@
 MLOps
 ==============================
 
-An end-to-end MLOps project
+An "in-progress" end-to-end MLOps project to predict NY taxi trip duration using DVC for experiment tracking, Github Actions for CI/CD, FastAPI, and Dockers.
 
 Project Organization
 ------------
