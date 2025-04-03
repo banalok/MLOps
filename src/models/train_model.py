@@ -4,7 +4,7 @@ import pandas as pd
 from yaml import safe_load
 from sklearn.ensemble import RandomForestRegressor
 from pathlib import Path
-
+import xgboost as xgb
 
 TARGET = 'trip_duration'
 
@@ -50,9 +50,9 @@ def main():
     # read the parameters from params.yaml
     with open('params.yaml') as f:
         params = safe_load(f)
-    model_params = params['train_model']['random_forest_regressor']
+    model_params = params['train_model']['xgboost'] #params['train_model']['random_forest_regressor']
     # make the model object
-    regressor = RandomForestRegressor(**model_params)
+    regressor = xgb.XGBRegressor(**model_params) #RandomForestRegressor(**model_params)
     # train the model
     regressor = train_model(model=regressor,
                             X_train=X_train,
@@ -60,7 +60,7 @@ def main():
     # save the model after training
     model_output_path = root_path / 'models' / 'models'
     model_output_path.mkdir(exist_ok=True)
-    save_model(model=regressor,save_path=model_output_path / 'rf.joblib')
+    save_model(model=regressor,save_path=model_output_path / 'xgb.joblib') #save_model(model=regressor,save_path=model_output_path / 'rf.joblib')
     
     
 if __name__ == "__main__":
